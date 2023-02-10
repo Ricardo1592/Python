@@ -1,7 +1,11 @@
 # Ler o nome completo do usuário e mostrar o primeiro e último de forma maiúscula
 
 L1=int(input("Digite o tamanho do vetor 1:"))
+while L1<0:
+    L1=input("Digite um tamanho válido:")
 L2=int(input("Digite o tamanho do vetor 2:"))
+while L2<0:
+    L2=input("Digite um tamanho válido:")
 v1= [0]*L1
 maior=L1
 if L2>L1:
