@@ -1,0 +1,7 @@
+https://www.youtube.com/watch?v=iE3_JWR-yaE computação_conceitos
+https://www.youtube.com/watch?v=KVlGx-9CuO4 computação_conceitos algoritmo_inversão_lista
+https://www.youtube.com/watch?v=UQzCFkRbIrE computação_conceitos algoritmo_inversão_lista
+stop
+
+notes
+pythontutor.com --> Site que mostra a execução do código na memória, vídeo --> Recursos Computacionais | Como o computador funciona?
