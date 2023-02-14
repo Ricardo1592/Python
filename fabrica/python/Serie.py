@@ -1,4 +1,5 @@
-n=int(input())
+n=float(input())
+n=int(n)
 soma=0
 termos=[]
 def func_denominador(n :int):
