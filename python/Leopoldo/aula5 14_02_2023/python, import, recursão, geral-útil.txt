@@ -1,0 +1,18 @@
+from programa import * --> importa tudo de programa, inclusive as variáveis, funções e classes.
+                           agora não precisa escrever "programa.var", pois já se tem acesso a var direto.
+import programa --> para acessar o que tem em programa.py é preciso usar --> programa.var,
+import circulo as c --> para acessar o que tem em programa.py é preciso usar --> c.var 
+geral(função inata do python) --> dir(str)) --> mostra o que tem no programa, classe, método ou função
+o meta __name__ aparece no dir() do programa executado
+
+import programa.__name__ --> retorna programa, caso seja importado em outro programa
+__name__ --> retorna main no programa que está sendo executado
+
+Ao importar algo, ele olha antes no Built-in que já vem na própria linguagem ou foi instalado pelo pip
+obs(IMPORTANTE): Ao segurar e clickar em cima de um modulo no exemplo --> import datetime , ao clickar em cima de datetime segurando o ctrl no vscode vai abrir o arquivo do módulo built-in datetime
+
+módulos (funções) built-in
+calendar --> import calendar 
+calendar.TextCalendar().formatmonth(2023,2) --> retorna uma tabela com os dias de fevereiro de 2023
+calendar.weekday(2023, 12,25) --> retorna 0 para segunda, 1 para terça e assim por diante, dependo da data passada
+calendar.day_name[calendar.weekday(2023, 12,25)] --> retorna o dia de acordo com o valor de 0 a 6 que pode ser passado 
