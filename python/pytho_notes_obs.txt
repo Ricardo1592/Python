@@ -1,3 +1,0 @@
-- Ao passar como parâmetro um dicionário(dict) ao alterar algum valor do dicionário dentro da função, 
-  ele mudará também fora dela como se fosse uma varáivel global, ao contrário do seria espearado.
-  Pois as duas variáveis apontam para o mesmo endereço de memória que é o do dicionário passado como parâmetro

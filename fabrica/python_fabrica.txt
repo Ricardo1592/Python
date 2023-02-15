@@ -1,7 +1,0 @@
-strings
-a="     casa    "
-print(a):
-     casa
-a.split() --> retorna: # útil para remover espaços em brancos desnecessários
-casa
- 
