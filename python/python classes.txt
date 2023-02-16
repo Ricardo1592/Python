@@ -1,0 +1,1 @@
+__init__ é um construtor de objetos (instâncias da classe)
