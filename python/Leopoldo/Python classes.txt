@@ -1,0 +1,14 @@
+Classes
+
+- type(nome_da_classe) --> retorna <class type>
+- type(instância_da_classe) --> retornaa <class __main__.nome_da_classe> ou se não for executado no programa principal --> <class __nome_do_programa__.nome_da_classe>
+
+- e5=e6 --> NÃO é uma copia, logo não são duas instâncias diferenças, são basicamente a mesma coisa,
+		significa que e5 e e6 apontam para o mesmo endereço de memória e qualquer mudança no endereço afetam as duas
+- M=L.copy() mesma coisa do caso acima, caso fosse M=L as duas listas apontariam para o mesmo lugar, e qualquer mudança em qualquer uma delas mudará as duas, pois é feita uma shallow copy
+  Obs: M=L[:] também faz uma cópia
+- shallow copy significa que se houver objetos na lista eles apontam para o mesmo lugar
+
+- Ao Criar vários objetos(instâncias) eles são colocados num heap 
+ Magic Methods
+- Exemplos em intset.py --> Usar magic methods pode tornar possível por exemplo, printar uma string ao printar a instância com def __str__(self): , tornar iterável def __iter__(self): , retornar o tamanho com def __len__(self): , permite a operação instancia1 + instancia2 def __add__(self): , def __eq__(self, other): permite comparar duas coisas, no caso instancia1 == other
