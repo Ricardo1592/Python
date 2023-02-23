@@ -12,3 +12,27 @@ Classes
 - Ao Criar vários objetos(instâncias) eles são colocados num heap 
  Magic Methods
 - Exemplos em intset.py --> Usar magic methods pode tornar possível por exemplo, printar uma string ao printar a instância com def __str__(self): , tornar iterável def __iter__(self): , retornar o tamanho com def __len__(self): , permite a operação instancia1 + instancia2 def __add__(self): , def __eq__(self, other): permite comparar duas coisas, no caso instancia1 == other
+
+- Polimofirsmo, encapsulamento, override, descriptors(get e set) (PROCURAR, VER AULAS)
+
+Encapsulamento
+ - __invisivel --> torna inacessível o atributo com __ no método init, obs: tudo que está identado na classe que foi CRIADA (métodos por exemplo) podem acessar o valor desse atributo invisível
+  
+Herança, ex:
+
+
+class Veiculo:
+    def __init__(self, marca :str ='Não informada', modelo :str ='Não informado', velocidadeMax :float =0.0, km :float =0.0, capacidade :int =5) -> None:
+        self.marca=marca
+        self.modelo=modelo
+        self.velocidadeMax=velocidadeMax
+        self.km=km
+        self.capacidade=capacidade
+    def __str__(self) -> str:
+        return 'Veículo {}, modelo {}, atinge velocidade máxima {}, comporta {} e já rodou {}'.format(self.marca, self.modelo, self.velocidadeMax, self.capacidade, self.km)
+
+class CarroFiat(Veiculo):        
+        def __init__ (self, modelo, velocidadeMax, km, capacidade=5)
+             super().__init__('Fiat', modelo, velocidadeMax, km, capacidade )
+
+
