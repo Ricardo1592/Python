@@ -1,0 +1,39 @@
+*LEMBRAR DO ; no final
+
+Eclipse
+Ctra+shift+o para o Eclipse(IDE) para já colocar todos os imports que estiverem faltando
+Ctrl+/ para comentar e descomentar uma parte selecionada
+
+aula01 - pesquisar
+heap
+pilha
+assembler
+compilador
+
+aula02
+
+Void --> siginifica ausência de retorno
+
+Tipos
+
+* Para converter um tipo para outro:
+	x =(int)var; 
+	
+  # Não dá para converter um tipo com maior tamanho num de menor, mas o contrário é possível(widening conversion)
+	long_var= int_var é possível, mas int_var= long_var não funcionar
+
+- Primitive type (int, float, double, char)
+- Objetc type (string)
+
+Strings
+
+String s = "java"  // é preciso declarar o tipo antes da varíavel, e o String é um objeto (obejct type) e não um tipo primitivo
+ 	métodos	
+	- s.chartAt(index)
+	- s.length() --> tamanho da string
+
+For(int i=0; i< s.length; i++){
+	System.out.println(s.charAt(i))
+}
+
+

@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author rcmm
+ *
+ */
+module asd {
+}

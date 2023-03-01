@@ -20,7 +20,6 @@ Encapsulamento
   
 Herança, ex:
 
-
 class Veiculo:
     def __init__(self, marca :str ='Não informada', modelo :str ='Não informado', velocidadeMax :float =0.0, km :float =0.0, capacidade :int =5) -> None:
         self.marca=marca
