@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Addition/src"/>
+	<classpathentry kind="src" path="Addition2/src"/>
+	<classpathentry kind="src" path="Arrays/src"/>
+	<classpathentry kind="src" path="Expressions/src"/>
+	<classpathentry kind="src" path="IfElseStatements/src"/>
+	<classpathentry kind="src" path="IncrementDecrementOperators/src"/>
+	<classpathentry kind="src" path="MethodOverload/src"/>
+	<classpathentry kind="src" path="Strings/src"/>
+	<classpathentry kind="src" path="VariablesAndConstants/src"/>
+	<classpathentry kind="output" path="Addition/bin"/>
+</classpath>
