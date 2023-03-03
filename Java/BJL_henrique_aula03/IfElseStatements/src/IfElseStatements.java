@@ -21,5 +21,10 @@ public class IfElseStatements {
 		if(grade>40 && grade<100){
 			
 		}
+		if(grade>40 || grade <20) {
+			
+		}
+		boolean b=true;	
+		System.out.println(!b);	
 	}
 }

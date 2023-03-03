@@ -22,6 +22,9 @@ Tipos
   # Não dá para converter um tipo com maior tamanho num de menor, mas o contrário é possível(widening conversion)
 	long_var= int_var é possível, mas int_var= long_var não funcionar
 
+O float precisa de f no final --> ex: float var = 8.4f
+	se não houver f, será double
+
 - Primitive type (int, float, double, char)
 - Objetc type (string)
 
@@ -69,3 +72,12 @@ public class IfElseStatements {
 		System.out.println(!b);	
 	}
 }
+
+list1 == list2 -> compara o endereço de memória
+lis1.equals(list2) -> Compara o conteúdo das listas 
+
+aula 04
+
+Method_overload --> Duas funções( // public static type name() {} ) com o mesmo nome, podem ser declaradas desde que seus tipos sejam diferentes
+
+Parâmetro real / Parâmetro formal 
