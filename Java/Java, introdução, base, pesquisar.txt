@@ -81,3 +81,75 @@ aula 04
 Method_overload --> Duas funções( // public static type name() {} ) com o mesmo nome, podem ser declaradas desde que seus tipos sejam diferentes
 
 Parâmetro real / Parâmetro formal 
+
+
+aula05 07-03-23 Classes 
+
+Formatão, Declaração de classes
+
+package point;
+
+public class Point {
+	
+	private int x;
+	private int y;
+	
+	public Point(){};  //Pode-se colocar miad de um método inicializador
+	
+	public Point(int x, int y) {
+		
+		this.x=x; // Método inicializador/construtor 
+		this.y=y;
+		
+	}
+	
+	public int getX() {
+		return this.x;
+	}
+	public int getY() {
+		return this.y;
+	}
+
+	public void setX(int x) {
+		this.x=x;
+	}
+
+	public void setY(int y){
+		this.y=y;
+	}
+	
+	@Override
+	public String toString() {
+		return "Point[x="+this.x+ ", y="+this.y+"]"; 
+	}
+	
+	public static void main(String [] args) {
+		
+		Point p1 = new Point();
+		p1.setX(2);
+		p1.setY(4);
+		System.out.println(p1.toString());
+		System.out.println(p1);
+		
+	}
+
+}
+
+
+
+ex01 containsAll exemplo
+//função containsAll
+public static boolean containsAll(ArrayList<String> list1, ArrayList<String> list2) {
+
+        for (String s2: list2) {
+
+            if (list1.indexOf(s2) == -1)  # retorna -1 ao não achar o índice de algum valor
+
+                return false;
+
+        }
+
+        return true;
+
+    }
+
