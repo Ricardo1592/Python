@@ -89,6 +89,7 @@ Formatão, Declaração de classes
 
 package point;
 
+exemplo1
 public class Point {
 	
 	private int x;
@@ -152,4 +153,24 @@ public static boolean containsAll(ArrayList<String> list1, ArrayList<String> lis
         return true;
 
     }
+
+
+
+
+Aula06 08-03-23
+
+Classes
+Ao comparar dos objetos, instâncias diferentes, o métodos list1.equals(list2) ou obj1.equals(obj2), caso tenham o mesmo conteúdo mesmo assim vai retornar False. Pois ele compara os endereços de memória por default. Para comparar o conteúdo de instâncias diferentes é preciso implementar um dunder, magic method. Ex:
+	@Override
+	
+
+Atributos de classe e atributos de instância
+
+- A palavra static na declaração vai determinar um método ou atributo de classe ex:
+   public static int x;  --> atributo de classe
+   public int x;  --> atributo de instância
+   public static int met1(){}  --> método de classe
+   public int met1(){}  --> Método de instância 
+   public static void met2(){}  --> Método de classe
+   public void met2(){}  --> Método de instância	
 
