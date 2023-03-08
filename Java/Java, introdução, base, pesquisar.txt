@@ -174,3 +174,12 @@ Atributos de classe e atributos de instância
    public static void met2(){}  --> Método de classe
    public void met2(){}  --> Método de instância	
 
+Herança
+
+public class Poupanca extends Conta{
+
+	public Poupanca(String numero){
+	 	super(numero);
+}
+
+
