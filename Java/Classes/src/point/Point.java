@@ -34,6 +34,11 @@ public class Point {
 		return "Point[x="+this.x+ ", y="+this.y+"]"; 
 	}
 	
+	@Override
+	public boolean equals() {
+		
+	}
+	
 	public static void main(String [] args) {
 		
 		Point p1 = new Point();
