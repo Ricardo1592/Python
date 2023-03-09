@@ -12,7 +12,7 @@ compilador
 
 aula02
 
-Void --> siginifica ausência de retorno
+Void --> siginifica ausência de retorno no método ou função
 
 Tipos
 
@@ -174,7 +174,7 @@ Atributos de classe e atributos de instância
    public static void met2(){}  --> Método de classe
    public void met2(){}  --> Método de instância	
 
-Herança
+Herança, polimorfismo
 
 public class Poupanca extends Conta{
 
@@ -183,3 +183,33 @@ public class Poupanca extends Conta{
 }
 
 
+aula07 09-03-23
+
+- System.out.println("hash "+this) --> vai concatenar com o
+
+- Reuso de polimorfismo
+	- Vai sempre fazer o override, caso haja dois métodos iguais nas classes pai e filho, sempre usando o método 	  da instância, do tipo do objeto. 
+
+- this.getClass().getName()  --> retorna a classe, e o nome da instância de this(usado dentro de uma classe)
+
+- Interface (herança "múltipla") -PESQUISAR  --> https://www.devmedia.com.br/entendendo-interfaces-em-java/25502#:~:text=A%20interface%20%C3%A9%20um%20recurso,classe%20de%20uma%20maneira%20diferente.
+
+  declaração:
+  public class C extends B implements I1, I2{
+  }	
+
+- Abstract, declaração  -Pesquisar
+   public abstract class
+
+- Passagem por cópia -Pesquisar, estudar
+  *colocar uma variável dentro do método ou função é igual a var1=var2, logo é criado uma cópia de um endereço que aponta para o mesmo objeto
+
+- Ponteiros que apontam para o mesmo objeto(aliases)
+	String s1=s2
+	s1==s2 --> True, pois apontam para o mesmo objeto
+	s1="java"
+	s2+="/python"
+	System.out.println(s1) --> retorna java, pois string é imutável, então ao fazer a concatenação ele descarta o endereço de memória, logo s2 passa a ter um endereço diferente de s1, assim s1 fica só com java 
+	s1="java"
+	s2="java" 
+	s1==s2 --> retorna true, pois o programa coloca "java" no pool, assim ao criar outro objeto com o mesmo conteúdo ele faz uma cópia do endereço do que está no pool
