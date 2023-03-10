@@ -213,3 +213,5 @@ aula07 09-03-23
 	s1="java"
 	s2="java" 
 	s1==s2 --> retorna true, pois o programa coloca "java" no pool, assim ao criar outro objeto com o mesmo conteúdo ele faz uma cópia do endereço do que está no pool
+
+aula08 10-03-23

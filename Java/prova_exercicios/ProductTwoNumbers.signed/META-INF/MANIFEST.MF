@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 11.0.17 (Eclipse Adoptium)
+
+Name: ProductTwoNumbers.java
+SHA-256-Digest: VgKniGgoNxajFEZLzuG8hACq8UMjzRQ2Q47c53DmsWo=
+
+Name: report.html
+SHA-256-Digest: bFpn71eaJ0TkEpz2pFzKdnahWH8lfuWaX8cZHlNBSak=
+

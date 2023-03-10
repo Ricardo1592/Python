@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="3V97GLGGVO5USJJ3T2MPOKJDM"/>
+<meta name="Time" content="2023-03-10T17:35:27Z"/>
+<meta name="ID" content="ProductTwoNumbers"/>
+<meta name="User" content="ehef-izab-byne-wedo"/>
+<meta name="Problem" content="ext/2005212440699tda72o6suv8zn9iawptxcs"/>
+<meta name="Elapsed" content="6810 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header call">Calling with Arguments</p>
+<div class="call">
+<table class="run">
+<tr><th>&#160;</th><th>Name</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>2.0, 2.0</pre></td>
+<td><pre>4.0
+</pre></td>
+<td><pre>4.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>2.0, 0.0</pre></td>
+<td><pre>0.0
+</pre></td>
+<td><pre>0.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>2.0, 1.0</pre></td>
+<td><pre>2.0
+</pre></td>
+<td><pre>2.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>2.0, -1.0</pre></td>
+<td><pre>-2.0
+</pre></td>
+<td><pre>-2.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>-2.0, -1.0</pre></td>
+<td><pre>2.0
+</pre></td>
+<td><pre>2.0
+</pre></td>
+</tr>
+</table>
+</div>
+<p class="header studentFiles">Submitted files</p>
+<div class="studentFiles">
+<p class="caption">ProductTwoNumbers.java:</p>
+<pre class="output">/*******************************************************
+ *                                                     * 
+ * PROBLEM:                                            *
+ *                                                     *
+ * Complete the design of the function called product  *
+ * that consumes two double numbers and produces the   *
+ * product of those numbers.                           *
+ *                                                     *
+ * see examples wrapped in check-expect.               *
+ *  -with the form: @check_expect (({in}) -&gt; (out))    *
+ *                                                     *
+ * @author Henrique Rebelo                             *
+ *******************************************************/
+public class ProductTwoNumbers {
+	
+  /**
+   * Examples:
+   * @check_expect (({2.0, 2.0})   -&gt; (4.0))
+   * @check_expect (({2.0, 0.0})   -&gt; (0.0))
+   * @check_expect (({2.0, 1.0})   -&gt; (2.0))
+   * @check_expect (({2.0, -1.0})  -&gt; (-2.0))
+   * @check_expect (({-2.0, -1.0}) -&gt; (2.0))
+   */  
+  public static double product(double x, double y) {
+   return x*y;
+  }
+}
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">5/5</p>
+</div>
+<div class="footnotes"><div class="footnote">2023-03-10T17:35:27Z</div>
+</div>
+</body></html>

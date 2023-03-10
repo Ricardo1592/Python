@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+<meta name="Submission" content="5BVQODHJMZ8OS3TGEMTFTQZZ3"/>
+<meta name="Time" content="2023-03-10T18:40:41Z"/>
+<meta name="ID" content="ProductNNumbers"/>
+<meta name="User" content="owov-usel-abyl-amyx"/>
+<meta name="Problem" content="ext/20052102556xn6t86wdgm988l6mow1gwua9"/>
+<meta name="Elapsed" content="3266 ms"/>
+<style type="text/css">
+.header {font-weight: bold; font-size: 1.2em; }
+.item {font-weight: bold;}
+.pass {color: green;}
+.fail {color: red;}
+.note {color: blue; font-weight: bold;}
+table.file td {padding-right: 1em; background: #FFF; }
+.linenumber {color: gray;}
+.footnote {font-size: 0.7em;}
+table {font-size: 0.9em;}
+td, th { background: #EEE; margin: 0.5em; padding: 0.25em;}
+table.output td {vertical-align: top;}
+div.footnotes { border-top: 1px solid gray; padding-top: 0.5em; }
+</style>
+<title>Report</title>
+</head>
+<body>
+<p class="header call">Calling with Arguments</p>
+<div class="call">
+<table class="run">
+<tr><th>&#160;</th><th>Name</th><th>Arguments</th><th>Actual</th><th>Expected</th></tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>new double[] {5}</pre></td>
+<td><pre>5.0
+</pre></td>
+<td><pre>5.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>new double[] {5, 5}</pre></td>
+<td><pre>25.0
+</pre></td>
+<td><pre>25.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>new double[] {-5, 5}</pre></td>
+<td><pre>-25.0
+</pre></td>
+<td><pre>-25.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>new double[] {-5, -5}</pre></td>
+<td><pre>25.0
+</pre></td>
+<td><pre>25.0
+</pre></td>
+</tr>
+<tr><td><span class="pass">pass </span></td>
+<td><pre>product</pre></td>
+<td><pre>new double[] {3, 3, 0}</pre></td>
+<td><pre>0.0
+</pre></td>
+<td><pre>0.0
+</pre></td>
+</tr>
+</table>
+</div>
+<p class="header studentFiles">Submitted files</p>
+<div class="studentFiles">
+<p class="caption">ProductNNumbers.java:</p>
+<pre class="output">/*******************************************************
+ *                                                     * 
+ * PROBLEM:                                            *
+ *                                                     *
+ * Complete the design of the function called product  *
+ * that consumes n double numbers and produces the     *
+ * product of those numbers.                           *
+ *                                                     *
+ * @required the Java "for" loop                       *
+ *                                                     *
+ * see examples wrapped in check-expect.               *
+ *  -with the form: @check_expect (({in}) -&gt; (out))    *
+ *                                                     *
+ * @author Henrique Rebelo                             *
+ *******************************************************/
+public class ProductNNumbers {
+	
+  /**
+   * Examples:
+   * @check_expect (({new double[] {5}})       -&gt; (5.0))
+   * @check_expect (({new double[] {5, 5}})    -&gt; (25.0))
+   * @check_expect (({new double[] {-5, 5}})   -&gt; (-25.0))
+   * @check_expect (({new double[] {-5, -5}})  -&gt; (25.0))
+   * @check_expect (({new double[] {3, 3, 0}}) -&gt; (0.0))
+   */  
+  public static double product(double [] numbers) {
+    double product = 1;
+  
+    for (int i=0; i&lt;numbers.length; ++i) {
+       product=product*numbers[i];
+    }
+    return product;
+  }
+}
+</pre>
+</div>
+<p class="header score">Score</p>
+<div class="score">
+<p class="score">5/5</p>
+</div>
+<div class="footnotes"><div class="footnote">2023-03-10T18:40:41Z</div>
+</div>
+</body></html>

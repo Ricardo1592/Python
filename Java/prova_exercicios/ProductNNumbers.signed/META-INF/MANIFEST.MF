@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: 11.0.17 (Eclipse Adoptium)
+
+Name: report.html
+SHA-256-Digest: arSJOeJpUuW0aN5vKW5Ie2hPVNV3/HfcbjqT/33vLBE=
+
+Name: ProductNNumbers.java
+SHA-256-Digest: Gj0AJgEdUZvNUwFLwcE5UmHRf66u8PbTnoys/pWFK0k=
+
