@@ -1,0 +1,31 @@
+Estudar
+- Diagrama de classe
+
+Python  documentação --> https://docs.python.org/3/
+https://www.programiz.com/python-programming/methods/list/sort   --> Sort method e function, exemplos utilizando key.
+https://www.geeksforgeeks.org/timsort/
+
+Java  --> https://www.javatpoint.com/how-to-sort-an-array-in-java  
+https://www.java67.com/2015/10/how-to-declare-arraylist-with-values-in-java.html --> arraylist e arrays
+https://blog.betrybe.com/java/java-array/ --> arraylist e arrays
+https://www.javatpoint.com/how-to-sort-an-array-in-java  arrays, sort--ascending-and-descending-order
+https://haylson.com.br/eclipse-atalhos-para-produtividade/#:~:text=Ctrl%20%2B%20Alt%20%2B%20(cima%20ou,D%20%3D%20Para%20apagar%20uma%20linha.
+https://www.youtube.com/playlist?list=PLGxZ4Rq3BOBrgumpzz-l8kFMw2DLERdxi  --> estrutura de Dados e Algoritmos com Java, arryas, pilhas, filas
+
+	
+Módulos, pastas e arquivos python
+https://iq-inc.com/importerror-attempted-relative-import/
+https://stackoverflow.com/questions/16981921/relative-imports-in-python-3
+https://docs.python.org/3/reference/import.html#package-relative-imports 
+
+
+sites de treinamento
+https://www.dio.me/
+pythontutor
+
+
+Inventor
+https://www.youtube.com/watch?v=Ezr_c0agzGA --> curso 
+
+Coppelia
+https://www.youtube.com/watch?v=CL1bTHv6aUU
