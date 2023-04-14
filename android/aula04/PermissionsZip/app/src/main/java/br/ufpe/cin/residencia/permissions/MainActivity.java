@@ -37,6 +37,9 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.INTERNET
     };
 
+    private static final String[] LOCATION_PERMISSION = {
+            Manifest.permission.ACCESS_FINE_LOCATION
+    };
     private static final String[] ONCREATE_PERMISSIONS = {
 
             Manifest.permission.ACCESS_FINE_LOCATION,
@@ -88,7 +91,12 @@ public class MainActivity extends AppCompatActivity {
 
         btn_location.setOnClickListener(
                 v -> {
-
+                    if (podeUsarLocation()) {
+                        acessarRecurso(R.string.msg_location);
+                    }
+                    else {
+                        requestPermissions(LOCATION_PERMISSION, LOCATION_REQUEST);
+                    }
                 }
         );
         btn_storage.setOnClickListener(
