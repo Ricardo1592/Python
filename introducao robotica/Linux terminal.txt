@@ -1,0 +1,60 @@
+Linux terminal
+Conexão de área de trabalho remota
+sudo /etc/init.d/xrdp start
+localhost:3390
+
+
+pwd - pega o home
+mkdir - cria pasta
+ls - lista pastas e arquivos
+cd 
+cd / - muda para raiz de linux
+cd ~ - muda para 
+chmod +(r, w, x) file  -> adiciona permissões ao arquivo
+ctr+shift+T --> para abrir outra aba no terminal 
+
+
+
+
+aula03
+criar workspace 
+sudo mkdir /home/workspace
+cd /home/workspace/
+mkdir -p ~/catkin_ws/src
+cd ~/catkin_ws/src
+catkin_init_workspace
+cd ~/catkin_ws
+catkin_make
+source devel/setup.bash
+catkin_create_pkg test rospy std_msgs  --> cria um pacote no src do projeto com as dependências necessárias
+roscore 
+rosrun package excutable #declaração, sintaxe do comando
+ctr+shift+t --> para abrir outra aba, depois de conectar o roscore
+rosrun rospy_tutorials talker.py
+rqt_graph --> abre um gráfico
+rostopic list  --> lista o /chatter
+rosrun rospy_tutorials listener.py
+rostopic info chatter  --> checkar as comunicações como estão funcionando
+cd ~/catkin_ws/src/test/src
+
+Para instalar o vscode
+wget -q https://packages.microsoft.com/keys/microsoft.asc -O- | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://packages.microsoft.com/repos/vscode stable main"
+sudo apt update
+sudo apt install code
+
+chmod +x 01_node.py --> no src onde está o arquivo ou colocar o caminho inteiro do arquivo
+#sudo dpkg -i ... .deb
+source devel/setup.bash --> em cd ~/catkin_ws para atualizar o pacote no OUTRO TERMINAL
+rosrun test 01_node.py --> em cd ~/catkin_ws 
+rostopic echo (- tab, tab completa o comando)
+verificar se aparece /counter que é a variável sendo transmitida no exemplo da aula
+rostopic echo /counter
+rostopic list
+rostopic info / (tab, tab para ver opções)
+
+rospack --> obtém informações de pacotes
+ -rospack find pacote_nome
+ -ros
+
+ wsl --shutdown

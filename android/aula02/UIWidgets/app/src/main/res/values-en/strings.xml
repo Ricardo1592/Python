@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">UI Widgets</string>
+    <string name="log_default">Standard message shown on top</string>
+    <string name="icon_caption">Icon subtitle</string>
+    <string name="button_caption">Button text</string>
+    <string name="txtbutton_caption">Click here</string>
+    <string name="switch_caption">Activate me or deactivate me</string>
+    <string name="checkbox_caption">Check me or uncheck me</string>
+    <string name="radiobutton1_caption">Sport</string>
+    <string name="radiobutton2_caption">Náutico</string>
+    <string name="radiobutton3_caption">Santa Cruz</string>
+    <string name="icon_clicked">Clicked on icon</string>
+    <string name="imgbutton_clicked">Clicked on button with image in it</string>
+    <string name="txtbutton_clicked">Clicked text button</string>
+    <string name="switch_checked">Activated the switch</string>
+    <string name="switch_unchecked">Deactivated the switch</string>
+    <string name="checkbox_checked">Activated the checkbox</string>
+    <string name="checkbox_unchecked">deactivated the checkbox</string>
+    <string name="radiobtn1_checked">Chose right option</string>
+    <string name="radiobtn2_checked">Be careful not to fall</string>
+    <string name="radiobtn3_checked">What is Santinha anyway ?</string>
+    <string name="seekbar_changed">Value of the change bar is now %d.</string>
+    <string name="otherButton_caption">The other button text</string>
+    <string name="log_clicked">Clicked on own log!</string>
+    <string name="radiogroup_clicked">clicked on radio group!</string>
+    <string name="otherbutton_clicked">Other text button clicked</string>
+
+</resources>

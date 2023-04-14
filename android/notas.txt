@@ -1,0 +1,29 @@
+Aula03
+ViewModel
+lyfecicle de activity - (rotação do celular dispara o método onCreate)
+
+Aula04
+Permissions
+Recycler view
+ - Scrollview --> no activity_main
+ - Adapter (viewHolder) --> recyclerView.setAdapter(???) // Vai entrar um Adapter no parâmetro 
+ class PessoaAdapter extends RecyclerView.Adapter <PessoaViewHolder> {
+ 
+  }
+  obs: <PessoaViewHolder> --> é um generics(determina o tipo que pode ser inserido )
+ class PessoaViewHolder extends RecyclerView.ViewHolder {
+ 	TextView nome;
+      TextView login;
+      ImageView icone;
+ 	
+	public PessoaViewHolder(@NonNull View linhaDoRecyclerView) {
+		super(linhaDoRecyclerView);
+		this.nome = linhaDoRecyclerView.findViewById(R.id.nome)
+		this.nome = linhaDoRecyclerView.findViewById(R.id.login)
+		this.nome = linhaDoRecyclerView.findViewById(R.id.icone)
+
+ 
+ } 
+
+ View V = getLayoutInflater().inflate(R.layout.pessoa,)
+

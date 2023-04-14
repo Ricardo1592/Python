@@ -1,0 +1,8 @@
+IDE ANDROID STUDIO
+Android
+ Manifest 
+ 	
+
+ res (resources)
+ - drawable  --> Figuras e ícones vão aqui
+ - 
