@@ -19,8 +19,8 @@ Recycler view
 	public PessoaViewHolder(@NonNull View linhaDoRecyclerView) {
 		super(linhaDoRecyclerView);
 		this.nome = linhaDoRecyclerView.findViewById(R.id.nome)
-		this.nome = linhaDoRecyclerView.findViewById(R.id.login)
-		this.nome = linhaDoRecyclerView.findViewById(R.id.icone)
+		this.login= linhaDoRecyclerView.findViewById(R.id.login)
+		this.icone = linhaDoRecyclerView.findViewById(R.id.icone)
 
  
  } 

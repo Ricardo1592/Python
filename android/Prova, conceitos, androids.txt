@@ -1,0 +1,20 @@
+Prova, conceitos, androids
+
+Workmanager 
+- Uma ferramenta para fazer trabalhos em background e tarefas que serão executadas em segundo plano, garantindo a persistência de dados simples, podendo guarda-los para posterior utilização, mesmo após uma mudança de actvity ou de configuração. Podendo por exemplo, colocar condições do tipo, precisa ter conexão para fazer download. 
+
+Banco de dados
+- Para se conectar com o banco usando a classe ProfessorDB, usar:
+
+	// Só precisar iniciar o objeto quando criar uma activity e não toda vez que clickar no botão
+
+	ProfessorDB db = Room.databaseBuilder(   // esse método faz a conexão com o banco de dados
+		    					getApplicationContext(),
+							ProfessorDB.class, // parâmetro que passa a classe com os métodos de inserir, deletar, atualizar, ou seja implementa a interface Professor.DAO //
+							ProfessorDB.nome_do_banco
+	).build();
+
+	
+	adicionarProfessor.setOnClickListener(
+		v -> {
+	}	 	
