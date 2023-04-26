@@ -17,4 +17,9 @@ Banco de dados
 	
 	adicionarProfessor.setOnClickListener(
 		v -> {
-	}	 	
+	}	
+
+Adapter
+
+LiveData 
+- Para observar as mudanças em tempo real, sem precisar mudar de configuração ou de activity, assim atualizando a tela 	
