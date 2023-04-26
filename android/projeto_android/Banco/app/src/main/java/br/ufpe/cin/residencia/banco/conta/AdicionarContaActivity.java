@@ -40,6 +40,9 @@ public class AdicionarContaActivity extends AppCompatActivity {
                     //TODO: Incluir validações aqui, antes de criar um objeto Conta (por exemplo, verificar que digitou um nome com pelo menos 5 caracteres, que o campo de saldo tem de fato um número, assim por diante). Se todas as validações passarem, aí sim cria a Conta conforme linha abaixo.
                     Conta c = new Conta(numeroConta, Double.valueOf(saldoConta), nomeCliente, cpfCliente);
                     //TODO: chamar o método que vai salvar a conta no Banco de Dados
+                    // Adicionei nessas linhas abaixo os métodos para inserir no banco de dados
+                    viewModel.inserir(c);
+                    finish();
                 }
         );
 

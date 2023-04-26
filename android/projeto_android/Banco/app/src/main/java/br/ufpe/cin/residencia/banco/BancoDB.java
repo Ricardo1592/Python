@@ -6,14 +6,18 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
+import br.ufpe.cin.residencia.banco.cliente.Cliente;
 import br.ufpe.cin.residencia.banco.conta.Conta;
 import br.ufpe.cin.residencia.banco.conta.ContaDAO;
 
 //ESTA CLASSE NAO PRECISA SER MODIFICADA, SE NAO FOR IMPLEMENTAR A FUNCIONALIDADE DE CLIENTES!
-@Database(entities = {Conta.class}, version = 1)
+// Declarando mais uma entidade na conexão com o banco, no caso, cliente
+@Database(entities = {Conta.class, Cliente.class}, version = 1)
 public abstract class BancoDB extends RoomDatabase {
     public abstract ContaDAO contaDAO();
 
+    // Método que devolve um objeto dao para clien, talvez seja necessário
+//    public abstract ClienteDAO ClienteDAO();
     public static final String DB_NAME = "banco.db";
     private static volatile BancoDB INSTANCE;
     public synchronized static BancoDB getDB(Context c) {

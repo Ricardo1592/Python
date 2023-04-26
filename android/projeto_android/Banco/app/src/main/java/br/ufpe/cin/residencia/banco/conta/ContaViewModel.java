@@ -29,6 +29,8 @@ public class ContaViewModel extends AndroidViewModel {
         new Thread(() -> repository.inserir(c)).start();
     }
 
+    public LiveData<List<Conta>> atualizarTodasContas(){return this.contas; }
+
     void atualizar(Conta c) {
         //TODO implementar
     }

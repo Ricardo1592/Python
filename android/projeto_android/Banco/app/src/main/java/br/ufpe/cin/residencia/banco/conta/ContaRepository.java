@@ -34,6 +34,13 @@ public class ContaRepository {
         //TODO implementar remover
     }
 
+    // Criei um método que busca todas as contas no banco de dados e retorna um objeto livedata com uma lista de contas
+    @WorkerThread
+    public LiveData<List<Conta>> listarTodasContasLive() {return dao.contas();}
+
+    @WorkerThread
+    public List<Conta> listarTodasContas() {return dao.todasContas();}
+
     @WorkerThread
     public List<Conta> buscarPeloNome(String nomeCliente) {
         //TODO implementar busca

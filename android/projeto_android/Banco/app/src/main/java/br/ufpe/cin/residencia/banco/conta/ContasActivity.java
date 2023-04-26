@@ -2,12 +2,16 @@ package br.ufpe.cin.residencia.banco.conta;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 import br.ufpe.cin.residencia.banco.R;
 
@@ -30,15 +34,15 @@ public class ContasActivity extends AppCompatActivity {
         adicionarConta.setOnClickListener(
                 v -> startActivity(new Intent(this, AdicionarContaActivity.class))
         );
-        // Observar as mudanças nos dados do LiveData contas
-        viewModel.getContas().observe(this, contas -> {
-        // Atualizar o Adapter com a nova lista de contas
-        adapter.setContas(contas);
-        // Notificar o Adapter que os dados foram alterados
-        adapter.notifyDataSetChanged();
-        });
-    }
-}
+//        /////// Implementar //////
+        viewModel.contas.observe(
+                this,
+                novaLista -> {
+                    Log.d("BANCODEDADOS", String.valueOf(novaLista.size()));
+                    List<Conta> novaListaContas = new ArrayList<>(novaLista);
+                    viewModel.atualizarTodasContas();
+                }
+        );
     }
     //TODO Neste arquivo ainda falta implementar o código que atualiza a lista de contas automaticamente na tela
 }
