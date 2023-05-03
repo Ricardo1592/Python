@@ -1,0 +1,4 @@
+
+- Suporte = 132/768 #Número de casos aplicáveis dividido pela amostra total
+
+- Confiança = 129/132 #Número de casos casos ocorridos dividido pelo conjunto de casoss
