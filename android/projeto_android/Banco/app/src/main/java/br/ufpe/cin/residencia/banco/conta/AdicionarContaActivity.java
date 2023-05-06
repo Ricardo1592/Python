@@ -42,19 +42,19 @@ public class AdicionarContaActivity extends AppCompatActivity {
                     boolean cpfSoNumeros = validacaoNumeros(cpfCliente) && cpfCliente.length() == 11;
                     boolean numeroSoNumeros = validacaoNumeros(numeroConta) && (numeroConta.length() <= 20 && numeroConta.length() > 0);
                     boolean saldoSoNumeros = validacaoNumeros(saldoConta) && (saldoConta.length() <= 30 && saldoConta.length() > 0);
-                    // Garante que o nome só contém letras e possui no mínimo 5 caracteres, caso contrário diz que o campo está inválido
+                    // Garante que o nome só contém letras e possui no mínimo 5 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!nomeSoLetras){
                        campoNome.setText("Nome Inválido");
                     }
-                    // Garante que o cpf só contém números e possui 11 caracteres, caso contrário diz que o campo está inválido
+                    // Garante que o cpf só contém números e possui 11 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!cpfSoNumeros){
                         campoCPF.setText("CPF Inválido");
                     }
-                    // Garante que o número da conta só contém números e tem no máximo 20 caracteres, caso contrário diz que o campo está inválido
+                    // Garante que o número da conta só contém números e tem no máximo 20 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!numeroSoNumeros){
                         campoNumero.setText("Número da conta inválido");
                     }
-                    // Garante que o saldo da conta só contém números e tem no máximo 30 caracteres, caso contrário diz que o campo está inválido
+                    // Garante que o saldo da conta só contém números e tem no máximo 30 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!saldoSoNumeros){
                         campoSaldo.setText("Saldo Inválido");
                     }
@@ -72,6 +72,7 @@ public class AdicionarContaActivity extends AppCompatActivity {
 
     }
 
+    // Métodos adicionados para validação
     public static boolean validacaoLetras(String nome){
         int i = 0;
         while (i < nome.length()) {

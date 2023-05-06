@@ -55,6 +55,26 @@ public class EditarContaActivity extends AppCompatActivity {
                     String cpfCliente = campoCPF.getText().toString();
                     String saldoConta = campoSaldo.getText().toString();
                     //TODO: Incluir validações aqui, antes de criar um objeto Conta. Se todas as validações passarem, aí sim monta um objeto Conta.
+
+                    // Essas variáveis booleanas serão definidas em funções específicas no final do código
+                    boolean nomeSoLetras = validacaoLetras(nomeCliente) && nomeCliente.length() >= 5;
+                    boolean cpfSoNumeros = validacaoNumeros(cpfCliente) && cpfCliente.length() == 11;
+                    boolean saldoSoNumeros = validacaoNumeros(saldoConta) && (saldoConta.length() <= 30 && saldoConta.length() > 0);
+                    // Garante que o nome só contém letras e possui no mínimo 5 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
+                    if (!nomeSoLetras){
+                        campoNome.setText("Nome Inválido");
+                    }
+                    // Garante que o cpf só contém números e possui 11 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
+                    if (!cpfSoNumeros){
+                        campoCPF.setText("CPF Inválido");
+                    }
+                    // Garante que o saldo da conta só contém números e tem no máximo 30 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
+                    if (!saldoSoNumeros){
+                        campoSaldo.setText("Saldo Inválido");
+                    }
+                    if (nomeSoLetras && cpfSoNumeros && saldoSoNumeros) {
+                        viewModel.atualizar(c);
+                    }
                     //TODO: chamar o método que vai atualizar a conta no Banco de Dados
                 }
         );
@@ -62,5 +82,31 @@ public class EditarContaActivity extends AppCompatActivity {
         btnRemover.setOnClickListener(v -> {
             //TODO implementar remoção da conta
         });
+    }
+
+
+    // Métodos adicionados para validação
+    public static boolean validacaoLetras(String nome){
+        int i = 0;
+        while (i < nome.length()) {
+            char c = nome.charAt(i);
+            if (!Character.isLetter(c) && c != ' ') {
+                return false;
+            }
+            i++;
+        }
+        return true;
+    }
+
+    public static boolean validacaoNumeros(String cpf){
+        int i = 0;
+        while (i < cpf.length()) {
+            char c = cpf.charAt(i);
+            if (!Character.isDigit(c) && c != ' ') {
+                return false;
+            }
+            i++;
+        }
+        return true;
     }
 }
