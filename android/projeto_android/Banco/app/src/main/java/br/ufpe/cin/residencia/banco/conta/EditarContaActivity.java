@@ -14,6 +14,10 @@ import br.ufpe.cin.residencia.banco.R;
 public class EditarContaActivity extends AppCompatActivity {
 
     public static final String KEY_NUMERO_CONTA = "numeroDaConta";
+    // Variáveis adicionadas para mostrar valores da Conta selecionada
+    public static final String CPF_CONTA = "CPFDaConta";
+    public static final String Nome_CONTA = "NomeDaConta";
+    public static final String Saldo_CONTA = "SaldoDaConta";
     ContaViewModel viewModel;
 
     @Override
@@ -31,8 +35,18 @@ public class EditarContaActivity extends AppCompatActivity {
         campoNumero.setEnabled(false);
 
         Intent i = getIntent();
-        String numeroConta = i.getStringExtra(KEY_NUMERO_CONTA);
-        //TODO usar o número da conta passado via Intent para recuperar informações da conta
+        // Modifiquei o parâmetro de getStringExtra para "numeroConta" assim ficando igual o do contaViewHolder
+        String numeroConta = i.getStringExtra("numeroConta");
+        String cpfDaConta = i.getStringExtra("cpfConta");
+        String nomeDaConta = i.getStringExtra("nomeConta");
+        String saldoDaConta = i.getStringExtra("saldoConta");
+        // TODO usar o número da conta passado via Intent para recuperar informações da conta
+        // Adicionei os métodos abaixo para colocar na tela os valores vindos da activity do contaViewHolder
+        campoNumero.setText(numeroConta);
+        campoCPF.setText(cpfDaConta);
+        campoNome.setText(nomeDaConta);
+        campoSaldo.setText(saldoDaConta);
+
 
         btnAtualizar.setText("Editar");
         btnAtualizar.setOnClickListener(

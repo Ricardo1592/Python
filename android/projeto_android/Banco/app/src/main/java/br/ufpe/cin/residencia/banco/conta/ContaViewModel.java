@@ -31,13 +31,27 @@ public class ContaViewModel extends AndroidViewModel {
 
     void atualizar(Conta c) {
         //TODO implementar
+
+        // Método adicionado para atualizar uma conta, rodando em outra thread para evitar o bloqueio do programa
+        new Thread(() -> repository.atualizar(c)).start();
     }
 
     void remover(Conta c) {
         //TODO implementar
+
+        // Método adicionado para remover uma conta, rodando em outra thread para evitar o bloqueio do programa
+        new Thread(() -> repository.remover(c)).start();
     }
 
     void buscarPeloNumero(String numeroConta) {
         //TODO implementar
+
+        // Método adicionado para buscar uma conta pelo seu número,
+        // rodando em outra thread para evitar o bloqueio do programa.
+        // Usa também o método postValue do MutableLiveData para mostrar esse professor na tela
+        new Thread(() -> {
+            Conta c = repository.buscarPeloNumero(numeroConta);
+            _contaAtual.postValue(c);
+        }).start();
     }
 }
