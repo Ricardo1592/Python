@@ -72,7 +72,8 @@ public class ContaRepository {
     }
 
     // Método adicionado para retornar o valor total de dinheiro no banco
-    public Double saldoTotal(Double saldoTotal){
+    @WorkerThread
+    public Double saldoTotal(){
         return dao.saldoTotal();
     }
 }

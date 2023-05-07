@@ -34,11 +34,54 @@ public class TransferirActivity extends AppCompatActivity {
                 v -> {
                     String numOrigem = numeroContaOrigem.getText().toString();
                     String numDestino = numeroContaDestino.getText().toString();
+                    String valorDaOperacao = valorOperacao.getText().toString();
                     //TODO lembrar de implementar validação dos números das contas e do valor da operação, antes de efetuar a operação de transferência.
                     // O método abaixo está sendo chamado, mas precisa ser implementado na classe BancoViewModel para funcionar.
-                    double valor = Double.valueOf(valorOperacao.getText().toString());
-                    viewModel.transferir(numOrigem, numDestino, valor);
-                    finish();
+
+
+                    Boolean numOrigemValido = true;
+                    Boolean numDestinoValido = true;
+                    Boolean numOperacaoValido = true;
+
+                    if (numOrigem.length()<1){
+                        // Levanta uma mensagem de campo inválido ao lado dele,
+                        // pois nenhum valor foi digitado
+                        numeroContaOrigem.setError("Campo invalido");
+                        numeroContaOrigem.requestFocus();
+                        numOrigemValido = false;
+                    }
+                    else{
+                        numOrigemValido = true;
+                    }
+
+                    if (valorDaOperacao.length()<1){
+                        // Levanta uma mensagem de campo inválido ao lado dele,
+                        // pois nenhum valor foi digitado
+                        valorOperacao.setError("Campo invalido");
+                        valorOperacao.requestFocus();
+                        numOperacaoValido = false;
+                    }
+                    else{
+                        numOperacaoValido = true;
+                    }
+
+                    if (numDestino.length()<1){
+                        // Levanta uma mensagem de campo inválido ao lado dele,
+                        // pois nenhum valor foi digitado
+                        numeroContaDestino.setError("Campo invalido");
+                        numeroContaDestino.requestFocus();
+                        numDestinoValido = false;
+                    }
+                    else{
+                        numDestinoValido = true;
+                    }
+                    // Só realiza a operação quando os três booleanos forem
+                    // verdadeiros, sinalizando que os três campos foram preenchidos
+                    if (numOrigemValido && numOperacaoValido && numDestinoValido){
+                        double valor = Double.valueOf(valorDaOperacao);
+                        viewModel.transferir(numOrigem, numDestino, valor);
+                        finish();
+                    }
                 }
         );
 

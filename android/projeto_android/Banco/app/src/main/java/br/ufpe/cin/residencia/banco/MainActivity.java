@@ -8,6 +8,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.text.NumberFormat;
+
 import br.ufpe.cin.residencia.banco.cliente.ClientesActivity;
 import br.ufpe.cin.residencia.banco.conta.ContasActivity;
 
@@ -50,6 +52,14 @@ public class MainActivity extends AppCompatActivity {
         pesquisar.setOnClickListener(
                 v -> startActivity(new Intent(this, PesquisarActivity.class))
         );
+
+        new Thread(() -> {
+
+            totalBanco.setText(Double.toString(viewModel.mostrarSaldoTotal()));
+
+        }).start();
     }
+
+
     //TODO Neste arquivo ainda falta a atualização automática do valor total de dinheiro armazenado no banco
 }

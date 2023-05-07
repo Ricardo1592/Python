@@ -10,6 +10,7 @@ import androidx.lifecycle.MutableLiveData;
 import java.util.List;
 
 import br.ufpe.cin.residencia.banco.conta.Conta;
+import br.ufpe.cin.residencia.banco.conta.ContaDAO;
 import br.ufpe.cin.residencia.banco.conta.ContaRepository;
 
 //Ver anotações TODO no código
@@ -18,6 +19,9 @@ public class BancoViewModel extends AndroidViewModel {
 
     // Foram adicionados um MutableLiveData que vai atualizar uma lista de contas de acordo com os valores que forem postados pelos métodos implementados buscarPeloNome, buscarPeloCPF, buscarPeloNumero
     public LiveData<List<Conta>> contasLista;
+
+    //
+    double bancoSaldoTotal = 0.0;
 
     private MutableLiveData<List<Conta>> _contasAtuais = new MutableLiveData<>();
     public LiveData<List<Conta>> contasAtuais = _contasAtuais;
@@ -35,8 +39,8 @@ public class BancoViewModel extends AndroidViewModel {
         new Thread(() -> {
             Conta contaOrigem = repository.buscarPeloNumero(numeroContaOrigem);
             Conta contaDestino = repository.buscarPeloNumero(numeroContaDestino);
-            contaOrigem.saldo = contaOrigem.saldo - valor;
-            contaDestino.saldo = contaDestino.saldo + valor;
+            contaOrigem.debitar(valor);
+            contaDestino.creditar(valor);
             repository.atualizar(contaOrigem);
             repository.atualizar(contaDestino);
         }).start();
@@ -49,7 +53,7 @@ public class BancoViewModel extends AndroidViewModel {
         // O método abaixo crédita o valor passado como parâmetro na conta com numeroConta
         new Thread(() -> {
             Conta c = repository.buscarPeloNumero(numeroConta);
-            c.saldo = c.saldo + valor;
+            c.creditar(valor);
             repository.atualizar(c);
         }).start();
     }
@@ -60,7 +64,7 @@ public class BancoViewModel extends AndroidViewModel {
         // O método abaixo debita o valor passado como parâmetro na conta com numeroConta
         new Thread(() -> {
             Conta c = repository.buscarPeloNumero(numeroConta);
-            c.saldo = c.saldo - valor;
+            c.debitar(valor);
             repository.atualizar(c);
         }).start();
     }
@@ -98,6 +102,15 @@ public class BancoViewModel extends AndroidViewModel {
 
     }
 
+    //
+    void atualizarSaldoTotal(){
+        bancoSaldoTotal = repository.saldoTotal();
 
+    }
+
+    public Double mostrarSaldoTotal(){
+        atualizarSaldoTotal();
+        return bancoSaldoTotal;
+    }
 
 }

@@ -23,6 +23,7 @@ public class ContaViewModel extends AndroidViewModel {
         super(application);
         this.repository = new ContaRepository(BancoDB.getDB(application).contaDAO());
         this.contas = repository.getContas();
+
     }
 
     void inserir(Conta c) {
@@ -54,4 +55,5 @@ public class ContaViewModel extends AndroidViewModel {
             _contaAtual.postValue(c);
         }).start();
     }
+
 }
