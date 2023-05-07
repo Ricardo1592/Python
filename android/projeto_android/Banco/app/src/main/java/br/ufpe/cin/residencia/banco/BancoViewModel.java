@@ -103,7 +103,8 @@ public class BancoViewModel extends AndroidViewModel {
 
     }
 
-    //
+    // Método criado para postar um valor novo, na variável bancoSaldoTotal,
+    // que representa a soma dos valores de todas as contas do banco de dados
     public void mostrarSaldoTotal(){
         new Thread(() -> {
             double novoSaldoTotal = repository.saldoTotal();
