@@ -60,7 +60,14 @@ public class ContaRepository {
     public Conta buscarPeloNumero(String numeroConta) {
         //TODO implementar busca
 
-        // Método adicionado que utiliza o método buscarPelaConta para retornar uma conta
+        // Método adicionado que utiliza o método buscarPelaNumero para retornar uma conta
+        return dao.buscarPeloNumero(numeroConta);
+    }
+
+    // Método adicionado que utiliza o método buscarPelaConta para retornar uma lista de contas
+    @WorkerThread
+    public List<Conta> buscarPelaConta(String numeroConta) {
+
         return dao.buscarPelaConta(numeroConta);
     }
 

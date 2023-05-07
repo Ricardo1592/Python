@@ -35,14 +35,14 @@ public interface ContaDAO {
 
     // Método adicionado para buscar uma conta pelo número dela
     @Query("SELECT * FROM contas WHERE numero = :conta")
-    Conta buscarPelaConta(String conta);
+    Conta buscarPeloNumero(String conta);
 
     // Método adicionado para buscar uma conta pelo número dela
     // e retornar uma lista de contas, a diferença para o de cima
     // é apenas o retorno que era necessário ser uma lista de contas
     // para funcionar na pesquisa do banco
     @Query("SELECT * FROM contas WHERE numero = :conta")
-    List<Conta> buscarPeloNumero(String conta);
+    List<Conta> buscarPelaConta(String conta);
 
     // Método adicionado para buscar uma conta pelo cpf
     @Query("SELECT * FROM contas WHERE cpfCliente LIKE :cpf")

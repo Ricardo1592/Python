@@ -91,10 +91,10 @@ public class BancoViewModel extends AndroidViewModel {
         //TODO implementar busca pelo número da Conta
 
         // Em um nova thread é feita a busca, no banco de dados, de uma conta pelo CPF do cliente. Sendo utilizado um MutableLiveData para atualizar o objeto com a lista de contas retornadas do banco
-//        new Thread(() -> {
-//            List<Conta> contasList = repository.buscarPeloNumero(numeroConta);
-//            _contasAtuais.postValue(contasList);
-//        }).start();
+        new Thread(() -> {
+            List<Conta> contasList = repository.buscarPelaConta(numeroConta);
+            _contasAtuais.postValue(contasList);
+        }).start();
 
     }
 
