@@ -1,0 +1,10 @@
+{
+  version: 1,
+  mediaFileName: 'p1 tela_inicial 1.mp4',
+  cutSegments: [
+    {
+      end: 14.73877,
+      name: '',
+    },
+  ],
+}

@@ -1,0 +1,10 @@
+{
+  version: 1,
+  mediaFileName: 'P4 cadastro de uma conta.mp4',
+  cutSegments: [
+    {
+      end: 81.47011443478262,
+      name: '',
+    },
+  ],
+}

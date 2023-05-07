@@ -72,7 +72,7 @@ public class AdicionarContaActivity extends AppCompatActivity {
 
     }
 
-    // Métodos adicionados para validação
+    // Métodos criados para validação
     public static boolean validacaoLetras(String nome){
         int i = 0;
         while (i < nome.length()) {

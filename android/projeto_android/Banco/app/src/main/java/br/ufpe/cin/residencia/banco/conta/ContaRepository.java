@@ -63,4 +63,9 @@ public class ContaRepository {
         // Método adicionado que utiliza o método buscarPelaConta para retornar uma conta
         return dao.buscarPelaConta(numeroConta);
     }
+
+    // Método adicionado para retornar o valor total de dinheiro no banco
+    public Double saldoTotal(Double saldoTotal){
+        return dao.saldoTotal();
+    }
 }

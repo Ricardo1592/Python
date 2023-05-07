@@ -45,10 +45,10 @@ public class ContaViewHolder  extends RecyclerView.ViewHolder {
             this.icone.setImageResource(R.drawable.delete);
         }
 
-        this.addListener(c.numero, saldo_string, c.nomeCliente, c.cpfCliente);
+        this.addListener(c.numero);
     }
 
-    public void addListener(String numeroConta, String saldoConta, String nomeConta, String cpfConta) {
+    public void addListener(String numeroConta) {
         this.itemView.setOnClickListener(
                 v -> {
                     Context c = this.itemView.getContext();
@@ -56,9 +56,6 @@ public class ContaViewHolder  extends RecyclerView.ViewHolder {
                     //TODO Está especificando a Activity mas não está passando o número da conta pelo Intent
                     // Adicionei o método i.putExtra para capturar o número da conta e joga-lo para outra activity
                     i.putExtra("numeroConta", numeroConta);
-                    i.putExtra("cpfConta", cpfConta);
-                    i.putExtra("nomeConta", nomeConta);
-                    i.putExtra("saldoConta", saldoConta);
                     c.startActivity(i);
                 }
         );

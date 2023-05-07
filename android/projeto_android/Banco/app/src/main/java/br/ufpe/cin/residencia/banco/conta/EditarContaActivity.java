@@ -8,6 +8,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
+import java.text.NumberFormat;
+
 import br.ufpe.cin.residencia.banco.R;
 
 //Ver anotações TODO no código
@@ -34,20 +36,25 @@ public class EditarContaActivity extends AppCompatActivity {
         EditText campoSaldo = findViewById(R.id.saldo);
         campoNumero.setEnabled(false);
 
+
+
         Intent i = getIntent();
         // Modifiquei o parâmetro de getStringExtra para "numeroConta" assim ficando igual o do contaViewHolder
+        // Carrega a informação do número da conta para posterior consulta
         String numeroConta = i.getStringExtra("numeroConta");
-        String cpfDaConta = i.getStringExtra("cpfConta");
-        String nomeDaConta = i.getStringExtra("nomeConta");
-        String saldoDaConta = i.getStringExtra("saldoConta");
+        // Utilizando o viewModel para buscar no banco a conta com o número passado na intent
+        viewModel.buscarPeloNumero(numeroConta);
+        viewModel.contaAtual.observe(
+                this,
+                conta -> {
+                    campoNome.setText(conta.nomeCliente);
+                    campoCPF.setText(conta.cpfCliente);
+                    campoSaldo.setText(NumberFormat.getInstance().format(conta.saldo));
+                }
+        );
         // TODO usar o número da conta passado via Intent para recuperar informações da conta
         // Adicionei os métodos abaixo para colocar na tela os valores vindos da activity do contaViewHolder
         campoNumero.setText(numeroConta);
-        campoCPF.setText(cpfDaConta);
-        campoNome.setText(nomeDaConta);
-        campoSaldo.setText(saldoDaConta);
-
-
         btnAtualizar.setText("Editar");
         btnAtualizar.setOnClickListener(
                 v -> {
@@ -72,20 +79,29 @@ public class EditarContaActivity extends AppCompatActivity {
                     if (!saldoSoNumeros){
                         campoSaldo.setText("Saldo Inválido");
                     }
-                    if (nomeSoLetras && cpfSoNumeros && saldoSoNumeros) {
-                        viewModel.atualizar(c);
-                    }
                     //TODO: chamar o método que vai atualizar a conta no Banco de Dados
+
+                    // Instanciando uma nova conta apenas quando os dados forem válidos, assim chamando o método atualizar do viewModel somente
+                    if (nomeSoLetras && cpfSoNumeros && saldoSoNumeros) {
+                        Conta c = new Conta(numeroConta, Double.parseDouble(saldoConta), nomeCliente, cpfCliente);
+                        viewModel.atualizar(c);
+                        finish();
+                    }
                 }
         );
 
         btnRemover.setOnClickListener(v -> {
             //TODO implementar remoção da conta
+
+            // Método adicionado para remover uma conta da aplicação e do banco de dados
+            viewModel.remover(viewModel.contaAtual.getValue());
+            finish();
+
         });
     }
 
 
-    // Métodos adicionados para validação
+    // Métodos criados para validação
     public static boolean validacaoLetras(String nome){
         int i = 0;
         while (i < nome.length()) {
