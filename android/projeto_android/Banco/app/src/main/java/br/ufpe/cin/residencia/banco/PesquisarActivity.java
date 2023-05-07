@@ -66,8 +66,24 @@ public class PesquisarActivity extends AppCompatActivity {
         });
 
 
+    }
 
+    // Esses métodos abaixo exibem a lista de todas as contas do banco,
+    // quando a activity é criada. Ao editar uma conta, passará a ser exibido,
+    // novamente, a lista inteira, mas com a atualização feita já aparecendo na tela
+    protected void onStart() {
+        super.onStart();
+        viewModel.contasLista.observe(this, contasLista -> {
+            adapter.submitList(contasLista);
+        });
 
+    }
+
+    protected void onResume() {
+        super.onResume();
+        viewModel.contasLista.observe(this, contasLista -> {
+            adapter.submitList(contasLista);
+        });
 
     }
 }
