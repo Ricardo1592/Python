@@ -53,11 +53,30 @@ public class MainActivity extends AppCompatActivity {
                 v -> startActivity(new Intent(this, PesquisarActivity.class))
         );
 
-        new Thread(() -> {
+        // Foi adicionado um MutableLiveData que observa mudanças no saldo
+        // total do banco. Os métodos abaixo são responsáveis por monitorar
+        // mudanças e solicitar do banco a soma total de todas as contas cadastradas.
+        viewModel.mostrarSaldoTotal();
+        viewModel.bancoSaldoTotal.observe(this, novoSaldoTotal -> {
+            totalBanco.setText(NumberFormat.getCurrencyInstance().format(novoSaldoTotal));
+        });
+    }
 
-            totalBanco.setText(Double.toString(viewModel.mostrarSaldoTotal()));
+    // Os métodos abaixo foram adicionados para que haja uma nova consulta
+    // sempre que voltar das activities de Creditar, Debitar e Transferir,
+    // Assim, atualizando o valor da soma de todas as contas, para que o
+    // o MutableLiveData seja capaz de capturar as mudanças e a alteração
+    // na soma delas.
+    protected void onStart() {
+        super.onStart();
+        viewModel.mostrarSaldoTotal();
 
-        }).start();
+    }
+
+    protected void onResume() {
+        super.onResume();
+        viewModel.mostrarSaldoTotal();
+
     }
 
 

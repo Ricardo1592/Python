@@ -21,7 +21,8 @@ public class BancoViewModel extends AndroidViewModel {
     public LiveData<List<Conta>> contasLista;
 
     //
-    double bancoSaldoTotal = 0.0;
+    private MutableLiveData<Double>  _saldoTotalAtual = new MutableLiveData<>();
+    public LiveData<Double> bancoSaldoTotal = _saldoTotalAtual;
 
     private MutableLiveData<List<Conta>> _contasAtuais = new MutableLiveData<>();
     public LiveData<List<Conta>> contasAtuais = _contasAtuais;
@@ -103,14 +104,11 @@ public class BancoViewModel extends AndroidViewModel {
     }
 
     //
-    void atualizarSaldoTotal(){
-        bancoSaldoTotal = repository.saldoTotal();
-
-    }
-
-    public Double mostrarSaldoTotal(){
-        atualizarSaldoTotal();
-        return bancoSaldoTotal;
+    public void mostrarSaldoTotal(){
+        new Thread(() -> {
+            double novoSaldoTotal = repository.saldoTotal();
+            _saldoTotalAtual.postValue(novoSaldoTotal);
+        }).start();
     }
 
 }
