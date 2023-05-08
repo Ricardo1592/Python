@@ -44,19 +44,23 @@ public class AdicionarContaActivity extends AppCompatActivity {
                     boolean saldoSoNumeros = validacaoNumeros(saldoConta) && (saldoConta.length() <= 30 && saldoConta.length() > 0);
                     // Garante que o nome só contém letras e possui no mínimo 5 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!nomeSoLetras){
-                       campoNome.setText("Nome Inválido");
+                       campoNome.setError("Nome Inválido");
+                       campoNome.requestFocus();
                     }
                     // Garante que o cpf só contém números e possui 11 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!cpfSoNumeros){
-                        campoCPF.setText("CPF Inválido");
+                        campoCPF.setError("CPF Inválido");
+                        campoCPF.requestFocus();
                     }
                     // Garante que o número da conta só contém números e tem no máximo 20 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!numeroSoNumeros){
-                        campoNumero.setText("Número da conta inválido");
+                        campoNumero.setError("Número da conta inválido");
+                        campoNumero.requestFocus();
                     }
                     // Garante que o saldo da conta só contém números e tem no máximo 30 caracteres, e que o campo não está vazio, caso contrário diz no campo que o valor está inválido
                     if (!saldoSoNumeros){
-                        campoSaldo.setText("Saldo Inválido");
+                        campoSaldo.setError("Saldo Inválido");
+                        campoSaldo.requestFocus();
                     }
                     //TODO: Incluir validações aqui, antes de criar um objeto Conta (por exemplo, verificar que digitou um nome com pelo menos 5 caracteres, que o campo de saldo tem de fato um número, assim por diante). Se todas as validações passarem, aí sim cria a Conta conforme linha abaixo.
                     // Essa verificação garante a criação do objeto conta apenas após as validações
