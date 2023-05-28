@@ -1,0 +1,34 @@
+The "SDK location not found" error message usually means that the Android Studio IDE is not able to locate the Android SDK location that is needed to build and run the Android project. This error can occur even if the project has been built and run successfully previously, if the location of the SDK has been changed or if the Android Studio configuration has been modified.
+
+To fix this error, you need to ensure that the Android SDK location is properly configured in Android Studio. You can do this by following these steps:
+
+1. Open the Android Studio IDE and click on the "File" menu at the top-left corner of the window.
+2. Select "Project Structure" from the drop-down menu.
+3. In the "Project Structure" window, select "SDK Location" from the left-hand side menu.
+4. Check the "Android SDK Location" field to ensure that the correct path to the Android SDK is set.
+5. If the path is incorrect or missing, click on the "Edit" button and select the correct path to the Android SDK location.
+6. Click on "OK" to save the changes.
+
+Once you have updated the SDK location, you should be able to build and run the Android project without encountering the "SDK location not found" error.
+
+
+
+
+
+The standard configuration for an Android App run configuration in Android Studio includes the following settings:
+
+1. Module: This specifies the Android module that should be run. By default, it is set to the app module of your project.
+
+2. Deployment Target: This specifies the device or emulator on which the app should be deployed and run. You can choose from a list of available devices and emulators.
+
+3. Launch Options: This specifies how the app should be launched. You can choose from several launch options, including "Default Activity", "Specified Activity", and "Nothing".
+
+4. Activity: This specifies the main activity that should be launched when the app is started. This option is only available if "Specified Activity" is selected in the Launch Options.
+
+5. Target Package: This specifies the package name of the app that should be launched. By default, it is set to the package name of your project.
+
+6. Deploy: This specifies whether the app should be deployed to the device or emulator before it is launched. By default, it is set to "APK from app bundle".
+
+7. Run ProGuard: This specifies whether ProGuard should be run on the app before it is launched. By default, it is set to "Don't Run ProGuard".
+
+These settings can be modified as needed depending on the requirements of your project. To create a new Android App run configuration, go to the "Run" menu in Android Studio and select "Edit Configurations...". From there, you can create a new run configuration and configure it according to your project's needs.

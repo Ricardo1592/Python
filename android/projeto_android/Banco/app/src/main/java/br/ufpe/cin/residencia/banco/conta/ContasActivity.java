@@ -6,6 +6,7 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,9 @@ public class ContasActivity extends AppCompatActivity {
         RecyclerView recyclerView = findViewById(R.id.rvContas);
         adapter = new ContaAdapter(getLayoutInflater());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        // Adicionei esse método para colocar uma linha entre as contas que irão aparecer,
+        // apenas como melhoria na ui.
+        recyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         recyclerView.setAdapter(adapter);
 
         Button adicionarConta = findViewById(R.id.btn_Adiciona);

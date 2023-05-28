@@ -34,12 +34,46 @@ public class DebitarActivity extends AppCompatActivity {
 
         btnOperacao.setOnClickListener(
                 v -> {
-                    String numOrigem = numeroContaOrigem.getText().toString();
-                    //TODO lembrar de implementar validação do número da conta e do valor da operação, antes de efetuar a operação de débito.
+                    //TODO lembrar de implementar validação do número da conta e do valor da operação, antes de efetuar a operação de crédito.
                     // O método abaixo está sendo chamado, mas precisa ser implementado na classe BancoViewModel para funcionar.
-                    double valor = Double.valueOf(valorOperacao.getText().toString());
-                    viewModel.debitar(numOrigem, valor);
-                    finish();
+
+                    // As comparações abaixo foram adicionadas para garantir
+                    // que algum valor tenha sido digitado, e isso sendo
+                    // válido, só assim realiza a operação
+                    String numOrigem = numeroContaOrigem.getText().toString();
+                    String valorDaOperacao = valorOperacao.getText().toString();
+                    Boolean numOrigemValido = true;
+                    Boolean numOperacaoValido = true;
+
+                    if (numOrigem.length()<1){
+                        // Levanta uma mensagem de campo inválido ao lado dele,
+                        // pois nenhum valor foi digitado
+                        numeroContaOrigem.setError("Campo invalido");
+                        numeroContaOrigem.requestFocus();
+                        numOrigemValido = false;
+                    }
+                    else{
+                        numOrigemValido = true;
+                    }
+
+                    if (valorDaOperacao.length()<1){
+                        // Levanta uma mensagem de campo inválido ao lado dele,
+                        // pois nenhum valor foi digitado
+                        valorOperacao.setError("Campo invalido");
+                        valorOperacao.requestFocus();
+                        numOperacaoValido = false;
+                    }
+                    else{
+                        numOperacaoValido = true;
+                    }
+                    // Só realiza a operação quando os dois booleanos forem
+                    // verdadeiros, sinalizando que os dois campos foram preenchidos
+                    if (numOrigemValido && numOperacaoValido){
+                        double valor = Double.valueOf(valorDaOperacao);
+                        viewModel.debitar(numOrigem,valor);
+                        finish();
+                    }
+
                 }
         );
     }

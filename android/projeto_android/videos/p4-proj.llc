@@ -1,0 +1,10 @@
+{
+  version: 1,
+  mediaFileName: 'p4.mp4',
+  cutSegments: [
+    {
+      end: 75.38469325121889,
+      name: '',
+    },
+  ],
+}
