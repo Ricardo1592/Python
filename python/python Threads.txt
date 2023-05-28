@@ -1,0 +1,3 @@
+Threads 
+
+- São Linhas de execução, que podem ser feitas paralelamente 

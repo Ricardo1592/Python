@@ -31,6 +31,9 @@ public class ContasActivity extends AppCompatActivity {
                 v -> startActivity(new Intent(this, AdicionarContaActivity.class))
         );
 
+        // Método adicionado para mostrar as contas que estão no banco,
+        // atualizando-as assim que tiver alguma modificação, mudança de tela,
+        // de configuração, ou de estados do lifecycle
         viewModel.contas.observe(this, contas -> {
             adapter.submitList(contas);
         } );

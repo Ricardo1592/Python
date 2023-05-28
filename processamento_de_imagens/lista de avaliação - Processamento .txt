@@ -1,0 +1,49 @@
+lista de avaliação - Processamento de imagem
+
+3 - 
+
+O histograma pode trazer informações relavantes em relação ao contraste da imagem, se os valores estiverem pouco espalhados, ou seja, concentrados e com uma distância baixa entre eles, significa que a imagem possui um contraste baixo. Logo, se tivermos duas imagens, comparando o histograma das duas, podemos identificar, rapidamente, qual das duas possui um maior contraste, pois a binarização apresenta melhores resultados com figuras de maior contraste.
+
+
+
+4 - Explique os aspectos computacionais a serem considerados na aplicação de uma
+convolução de um filtro em uma imagem no domínio espacial.
+
+	1 - Cor não realizável
+		A convolução, nas suas operações para cada pixel da matriz, faz multiplicações e 		somas que podem passar de 255 ou ficar negativo, o que não é possível no sistema 		RGB
+	2 - Eficiência computacional, um custo computacional quadrático N2, afetando  a 		    eficiência do programa
+	3 - Extensão do domínio da imagem (Há vários tipos de extensões de imagem)
+		Adiciona uma linha acima e abaixo. E uma coluna a direita e a esquerda. Essa 			quantidade de linhas e colunas adicionadas dependem das dimensões da matriz do 		filtro  
+6 - Explique os aspectos computacionais a serem considerados na aplicação de uma
+convolução de um filtro em uma imagem no domínio espacial.
+	
+	O filtro passa-baixa é utilizado para borrar a imagem, ou seja, as partes da imagem que 	possuam frequência(eu acho que frequência é a diferença de cor), tendo uma variação de 	cores entre os tons de cinza, onde justamente será aplicado o borramento. Ao fazer a 	diferença, irá inverter os pixels, colocando em cada pixel da imagem o inverso dele. 
+
+
+
+
+
+9 - As operações de Erosão e Dilatação, se referem respectivamente à diminuição dos pixels brancos e à expansão deles, no entanto, não são operações inversas ou inversíveis, pois não necessariamente o inverso de uma erosão irá resultar numa dilatação, pode sim ocorrer, mas não por definição, e sim por coincidência. Numa Erosão com um determinado elemento, os pixels brancos da imagem, que não casem completamente com pixels ativos do elemento, virarão pretos e apenas os que casam completamente, serão pintados de branco no elemento central do elemento estruturante. Já na dilatação qualquer pixel da imagem que case com os pixels brancos do elemento estruturante, serão pintados de branco 
+
+
+
+
+
+Gaussiana é um filtro de passa baixa convoluido várias vezes e pode ser usado para borrar a imagem.
+
+O Laplaciano de uma Gauciana é usado para melhorar a detecção de bordas feitas pela derivada de primeira ordem 
+
+observações, notas	
+Numa convolução ao multiplicar as funções na operação, no caso de imagens ou sinais, as matrizes, a matriz resultante ficaria com mais colunas e linhas, aumentando a imagem. Por isso, utiliza-se o processo de correlação, que é uma convolução alterada para a matriz da imagem.
+
+
+
+
+
+
+
+
+
+
+Procurar
+- Algoritmo de detecção de bordas
