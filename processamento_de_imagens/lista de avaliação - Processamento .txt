@@ -1,8 +1,11 @@
+ex prático: https://colab.research.google.com/drive/1JApd_Vy7pOhE3raTktXslxZQcnsXK5x8
+            https://colab.research.google.com/drive/1OVYWg1hkdAWTdMDtYgy0tla9cxLGphZC --> cópia do drive
+
 lista de avaliação - Processamento de imagem
 
 3 - 
 
-O histograma pode trazer informações relavantes em relação ao contraste da imagem, se os valores estiverem pouco espalhados, ou seja, concentrados e com uma distância baixa entre eles, significa que a imagem possui um contraste baixo. Logo, se tivermos duas imagens, comparando o histograma das duas, podemos identificar, rapidamente, qual das duas possui um maior contraste, pois a binarização apresenta melhores resultados com figuras de maior contraste.
+O histograma pode trazer informações relavantes em relação ao contraste da imagem, se os valores estiverem pouco espalhados, ou seja, concentrados e com uma distância baixa entre eles, significa que a imagem possui um contraste baixo. Logo, se tivermos duas imagens, comparando o histograma das duas, podemos identificar rapidamente, qual das duas possui um maior contraste, pois a binarização apresenta melhores resultados com figuras de maior contraste.
 
 
 
