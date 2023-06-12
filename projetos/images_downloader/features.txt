@@ -1,0 +1,8 @@
+Download images from these sites:
+
+rule34
+
+TODO
+
+- Tagging mode, usando a mesma preview de imagens, só que lendo para as imagens de uma pasta e no entry_box colocar as tags que desejo acrescentar ao nome da imagem
+
