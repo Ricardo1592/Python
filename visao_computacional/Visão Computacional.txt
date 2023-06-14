@@ -1,0 +1,23 @@
+Visão Computacional
+
+sites
+CNN explainer - Convoluções várias imagens
+
+
+
+Aprendizagem profunda
+- Modelo CNN # pesquisar 
+- Dive into deep learning # pesquisar livro, online
+- Yolo para detecção de objetos # pesquisar 
+
+modelos redes neurais
+
+- MLP
+
+
+modelos redes convolucionais
+
+- CNN --> Em termos de imagem muito usado
+- AlexNet
+- LeNtet 
+- VGG
