@@ -21,12 +21,19 @@ class FolderImagesScreen(ctk.CTkFrame):
         # label1 = ctk.CTkLabel(self, bg_color='blue')
         # label1.pack(expand=True, fill='both')
         self.master = parent
-        frame_left_side = FrameLeftSideScrollable(self)
-        frame_left_side.place(relx=0.220, rely=0.01, relwidth=1, relheight=0.98)
-
-        frame_right_side = FrameRightSide(self, frame_left_side)
-        frame_right_side.place(relx=0.012, rely=0.1, relwidth=0.2, relheight=0.8)
         self.folder_path :Path = None
+        self.scrollable_list = []
+
+        self.frame_left_side = FrameLeftSideScrollable(self)
+        self.frame_left_side.place(relx=0.220, rely=0.01, relwidth=1, relheight=0.98)
+
+        self.frame_pages_number = FramePagesNumber(self)
+        self.frame_pages_number.place(relx=0.012, rely=0.91, relwidth=0.2, relheight=0.07)
+
+        frame_right_side = FrameRightSide(self, self.frame_left_side)
+        frame_right_side.place(relx=0.012, rely=0.1, relwidth=0.2, relheight=0.8)
+    
+        
         
 
         # O frame dessa tela, ocupa tudo, e só
@@ -144,12 +151,20 @@ class FrameRightSide(ctk.CTkFrame):
 
     def show_images(self):
         
+        self.parent.scrollable_list = []
         if self.folder_path and self.folder_path_Svar.get():
             # print('will show images')
             # self.frame_left_side.destroy()
             self.frame_left_side = FrameLeftSideScrollable(self.frame_left_side.parent, self.folder_path, self.frame_left_side.folder_paths)
             self.frame_left_side.place(relx=0.237, rely=0.01, relwidth=0.763, relheight=0.98)
+            self.parent.scrollable_list.append(self.frame_left_side)
             self.frame_left_side.show_images()
+            for i in range(len(self.frame_left_side.items_lists)-1):
+                frame_raised = FrameLeftSideScrollable(self.frame_left_side.parent, self.folder_path, self.frame_left_side.folder_paths)
+                
+                self.parent.scrollable_list.append(frame_raised)
+                 
+            self.parent.frame_pages_number.create_pages_buttons(self.frame_left_side.items_lists)
         if not self.folder_path_Svar.get():
             print('destroying frame...')
             self.frame_left_side.destroy()
@@ -179,7 +194,7 @@ class FrameLeftSideScrollable(ctk.CTkScrollableFrame):
         self.folder_paths = folder_paths
         self.parent = parent
         # Configuração do layout em grid
-        self.num_colunas = 5  # Número de imagens por linha
+        self.num_colunas = 4  # Número de imagens por linha
         self.coluna_atual = 0
         self.linha_atual = 0
         self.image_number = 1
@@ -188,6 +203,9 @@ class FrameLeftSideScrollable(ctk.CTkScrollableFrame):
         self.images_loaded = False
         self.tags = tags
         self.checkboxs_selected = []
+        # Lista de listas de itens imagens, 
+        # quando chega em 500 itens, criamos uma nova página
+        self.items_lists = [] 
 
         # Lista para armazenar os itens de imagem
         self.itens_imagem = []
@@ -205,7 +223,7 @@ class FrameLeftSideScrollable(ctk.CTkScrollableFrame):
         for i, arquivo in enumerate(arquivos):
             # Carrega a imagem
             image = Image.open(arquivo)
-            image.thumbnail((265, 265))
+            image.thumbnail((335, 335))
             image_size = image.size
             # print('image size ', image_size)
         
@@ -214,35 +232,51 @@ class FrameLeftSideScrollable(ctk.CTkScrollableFrame):
 
             # Cria um Checkbutton para cada imagem
             
-            var = IntVar()
-            checkbox = ctk.CTkCheckBox(self, variable=var, text='', command=lambda i=i: self.checkbox_clicado(i), width=0.2)
+            self.var = IntVar()
+            checkbox = ctk.CTkCheckBox(self, variable=self.var, text='', command=lambda i=i: self.checkbox_clicado(i), width=0.2)
             # print("checkbox width ", checkbox.winfo_width())
-            checkbox.var = var
+            checkbox.var = self.var
 
             # Cria um Label para exibir a imagem
             label = ctk.CTkLabel(self, image=imagemCTk, text='')
             label.image = imagemCTk
             # print("label width ", label.winfo_width())
-
-            # Posiciona o Checkbutton e o Label no grid
-            label.grid(row=self.linha_atual, column=self.coluna_atual, padx=1, pady=5, sticky='ns')
-            checkbox.grid(row=self.linha_atual, column=self.coluna_atual+1, padx=1, pady=5, sticky='w')
-            # if image_number == 1:
-            #     label.grid(row=self.linha_atual, column=self.coluna_atual, padx=1, pady=25)
-            #     # checkbox.grid(row=self.linha_atual, column=self.coluna_atual + 1, padx=1, pady=25)
-
-
+            
             # Cria um item de imagem com o Label e o Checkbutton correspondentes
-            item_imagem = ImagemItem(image, checkbox, self.image_number, arquivo)
+            item_imagem = ImagemItem(image, checkbox, self.image_number, arquivo, label)
             self.itens_imagem.append(item_imagem)
+            
 
-            # Atualiza a coluna e a linha atual
-            self.coluna_atual += 2
-            if self.coluna_atual >= self.num_colunas * 2:
-                self.coluna_atual = 0
-                self.linha_atual += 1
-            self.image_number += 1   
-            self.images_loaded = True
+            
+            #### ANTIGO LOOP FUNCIONANDO ####
+
+            # # Posiciona o Checkbutton e o Label no grid
+            # label.grid(row=self.linha_atual, column=self.coluna_atual, padx=1, pady=5, sticky='ns')
+            # checkbox.grid(row=self.linha_atual, column=self.coluna_atual+1, padx=1, pady=5, sticky='w')
+            # # if image_number == 1:
+            # #     label.grid(row=self.linha_atual, column=self.coluna_atual, padx=1, pady=25)
+            # #     # checkbox.grid(row=self.linha_atual, column=self.coluna_atual + 1, padx=1, pady=25)
+
+
+            
+            # # Atualiza a coluna e a linha atual
+            # self.coluna_atual += 2
+            # if self.coluna_atual >= self.num_colunas * 2:
+            #     self.coluna_atual = 0
+            #     self.linha_atual += 1
+            # self.image_number += 1   
+            # self.images_loaded = True
+
+            #### ANTIGO LOOP FUNCIONANDO ####
+        print('length -- ', self.itens_imagem)
+        slice_list_itens = len(self.itens_imagem)//370
+        if slice_list_itens > 0:
+            for number in range(slice_list_itens+1):
+                self.items_lists.append(self.itens_imagem[370*number:370*(number+1)])
+        print("lista com 370 itens -- ", len(self.items_lists))
+        print("lista com 370 itens -- ", len(self.items_lists[1]))
+
+        self.display_images(0)
 
     def checkbox_clicado(self, index):
         print("checkbox clicado: ", index)
@@ -279,22 +313,53 @@ class FrameLeftSideScrollable(ctk.CTkScrollableFrame):
                 if self.tags not in item.path.stem: 
                     new_name = self.tags + " " + item.path.stem
                     item.path.rename(item.path.with_stem(new_name))
+                    item.label.destroy()
+                    item.checkbox.destroy()
+                    
                 
         print("Checkboxes clicados:", checkboxes_clicados)
         print("Image number: ", image_numbers)
         print("Image path: ", images_path)
 
-                
+    def display_images(self, page_number: int, item_lists: list = None, frame_to_raise = None):
+        # Configuração do layout em grid
+        print('page number ', page_number)
+        print('items list -- ', item_lists)
+        self.num_colunas = 4  # Número de imagens por linha
+        self.coluna_atual = 0
+        self.linha_atual = 0
+        self.image_number = 1
+        if frame_to_raise:
+            self = frame_to_raise     
+        if item_lists:  
+            self.items_lists = item_lists
+        print('len 30 list -- ', len(self.items_lists[page_number]))    
+        print('30 list -- ', self.items_lists[page_number])    
+        for item in self.items_lists[page_number]:
+                item.label.master = frame_to_raise
+                item.checkbox.master = frame_to_raise
+                # item.checkbox.var = self.var
+                # item.label.image = item.image
+                item.label.grid(row=self.linha_atual, column=self.coluna_atual, padx=1, pady=5, sticky='ns')
+                item.checkbox.grid(row=self.linha_atual, column=self.coluna_atual+1, padx=1, pady=5, sticky='w')
 
+                # Atualiza a coluna e a linha atual
+                self.coluna_atual += 2
+                if self.coluna_atual >= self.num_colunas * 2:
+                    self.coluna_atual = 0
+                    self.linha_atual += 1
+                self.image_number += 1   
+                self.images_loaded = True  
 
 
 
 class ImagemItem:
-    def __init__(self, image, checkbox, image_number: int, path: Path):
+    def __init__(self, image, checkbox, image_number: int, path: Path, label: ctk.CTkLabel):
         self.image = image
         self.checkbox = checkbox
         self.image_number = image_number
         self.path = path
+        self.label = label
 
 
 
@@ -311,7 +376,7 @@ class FrameLeftSide(ctk.CTkFrame):
     
     def __init__(self, parent, folder_path: Path = None):
         super().__init__(parent)
-        self._set_appearance_mode('dark')
+        # self._set_appearance_mode('dark')
         self.folder_path = folder_path
 
 
@@ -326,3 +391,50 @@ class FrameLeftSide(ctk.CTkFrame):
         # canvas.configure(yscrollcommand=scrollbar_vertical.set)
 
         # self._set_appearance_mode("dark") 
+
+
+class FramePagesNumber(ctk.CTkFrame):
+
+    def __init__(self, parent, page_list: list = [], folder_path: Path = None):
+        super().__init__(parent)
+        # self._set_appearance_mode('dark')
+        self.parent = parent
+        self.folder_path = folder_path
+        self.page_list = page_list
+        # Configuração do layout em grid
+        self.num_colunas = 10  # Número de imagens por linha
+        self.coluna_atual = 0
+        self.linha_atual = 0
+        self.page_number = 1
+
+
+
+
+    def create_pages_buttons(self, page_list):
+        self.page_list = page_list
+        for i in range(len(self.page_list)):
+
+
+            self.button_page = ctk.CTkButton(self, text=f'{i}', command=lambda i=i: self.click_page_button(i, page_list), width=0.2)
+            self.coluna_atual += 1
+            self.button_page.grid(row=self.linha_atual, column=self.coluna_atual+1, padx=1, pady=5, sticky='w')
+            if self.coluna_atual >= self.num_colunas * 1:
+                self.coluna_atual = 0
+                self.linha_atual += 1
+            self.page_number += 1   
+            self.images_loaded = True
+
+    def click_page_button(self, page_number: int, page_list: list):
+        print(f'clicked in button {page_number}') 
+        print(f'type button {type(page_number)}') 
+        print(self.parent.scrollable_list)
+        item_lists = page_list
+        print(item_lists)
+        frame_to_raise = self.parent.scrollable_list[page_number]
+        self.parent.frame_left_side.place_forget()
+        self.parent.frame_left_side = frame_to_raise
+        frame_to_raise.place(relx=0.220, rely=0.01, relwidth=1, relheight=0.98)
+        frame_to_raise.display_images(page_number, item_lists, frame_to_raise)
+        # self.parent.frame_left_side.place(relx=0.220, rely=0.01, relwidth=1, relheight=0.98) 
+        
+        
